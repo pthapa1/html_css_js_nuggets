@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400');
+:root {
+  --darkBackground: #424141;
+  --whiteTextColor: #fcf3f3;
+  --whiteBackground: #e2dcdc;
+  --darkTextColor: #070707;
+  --lightBodyBackground: #f6fcff;
+  --darkBodyBackground: #292929;
+}
+.light-theme {
+  --sectionBackground: var(--whiteBackground);
+  --textColor: var(--darkTextColor);
+  --bodyBackground: var(--lightBodyBackground);
+  overflow: hidden;
+}
+.dark-theme {
+  --sectionBackground: var(--darkBackground);
+  --textColor: var(--whiteTextColor);
+  --bodyBackground: var(--darkBodyBackground);
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font  */
+
+html {
+  font-size: 100%;
+} /*16px*/
+
+body {
+  background: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #000000;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+small,
+.text_small {
+  font-size: 0.8rem;
+}
+/* font end */
+.header {
+  display: flex;
+  place-content: center;
+  padding: 1em;
+}
+.card {
+  display: grid;
+  place-content: center;
+}
+
+/* pratik picture */
+section {
+  /* min-height: 100vh; */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background-color: rgb(70, 68, 68);
+  width: 90%;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  border-radius: 0.5rem;
+}
+.left {
+  width: 50%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sectionBackground);
+}
+.para {
+  color: var(--textColor);
+}
+.right {
+  width: 50%;
+  min-height: 300px;
+  background-color: hsl(213, 67%, 57%) /*#6097da*/;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--box-shadow);
+}
+
+.toggle {
+  --width: 60px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle__input {
+  display: none;
+}
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: var(--darkBodyBackground);
+  transition: background 0.2s;
+}
+
+/* when the input field is checked, select the next sibling (.toggle_fill with ~)  that's the backrougnd X to Y*/
+.toggle__input:checked ~ .toggle__fill {
+  background: var(--lightBodyBackground);
+}
+.toggle__fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  background: #acbac9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+.darkMode {
+  background: var(--bodyBackground);
+}
+
+/* https://academind.com/tutorials/adding-dark-mode: This is how you toggle between dark and light mode. */

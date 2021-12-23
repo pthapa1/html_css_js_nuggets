@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./normalize.css" />
+    <script src="./app.js" async></script>
+    <title>To PDF</title>
+  </head>
+  <body>
+    <div id="tabs">
+      <button class="btn" id="addBtn">Add text field</button>
+      <button
+        class="tablink btn"
+        id="defaultOpen"
+        onclick="openPage('new-p',this,'#394f87','#bfcef3')"
+      >
+        Packages
+      </button>
+      <button
+        class="tablink btn"
+        onclick="openPage('new-spf',this,'#394f87','#f8d7da')"
+      >
+        Service Plan Features
+      </button>
+      <button
+        class="tablink btn"
+        onclick="openPage('testSection',this,'#394f87','#ffd79e')"
+      >
+        Test Button
+      </button>
+    </div>
+
+    <section class="tabcontent" id="new-p">
+      <h4>What is the name of the package?</h4>
+      <input
+        type="text"
+        name="packageName"
+        id="packageName"
+        placeholder="e.g. Interactive Gold "
+        class="textInput"
+      />
+    </section>
+    <section class="tabcontent" id="new-spf">
+      <h4>What is the name of the service plan feature?</h4>
+      <input
+        type="text"
+        name="packageName"
+        id="packageName"
+        placeholder="e.g. Voice Notifications for Alarms"
+        class="textInput"
+      />
+    </section>
+    <section class="tabcontent" id="testSection">
+      <h4>This is just a test for a new Tab</h4>
+      <input
+        type="text"
+        name="testInput"
+        id="test"
+        placeholder="Just a Test"
+        class="textInput"
+      />
+    </section>
+  </body>
+</html>
