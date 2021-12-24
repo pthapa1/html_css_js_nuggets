@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" type="text/javascript" defer></script>
+    <title>Form</title>
+  </head>
+  <body>
+    <article class="edit-ticket">
+      <form action="" method="post" class="form">
+        <p class="small-text from">Bill From</p>
+        <br />
+        <p class="address small-text">Street Address</p>
+        <br />
+        <input type="text" placeholder="1234 Somewhere St" />
+        <p class="address small-text">City</p>
+        <input type="text" placeholder="City" />
+        <p class="address small-text">Post Code</p>
+        <input type="text" placeholder="Zip Code" />
+        <p class="address small-text">Country</p>
+        <input type="text" placeholder="Country" />
+        <br />
+        <p class="small-text to">Bill To</p>
+        <br />
+        <p class="name">Client's Name</p>
+        <input type="text" placeholder="Name" />
+        <p class="client-email">Client's Email</p>
+        <p class="address small-text">Street Address</p>
+        <br />
+        <input type="text" placeholder="1234 Somewhere St" />
+        <p class="address small-text">City</p>
+        <input type="text" placeholder="City" />
+        <p class="address small-text">Post Code</p>
+        <input type="text" placeholder="Zip Code" />
+        <p class="address small-text">Country</p>
+        <input type="text" placeholder="Country" />
+        <br />
+        <p class="small-text">Invoice Date</p>
+        <input type="datetime" />
+        <p class="small-text">Due Date</p>
+        <input type="datetime" />
+        <br />
+        <p class="small-text">Project Description</p>
+        <input type="text" />
+        <br />
+        <br />
+
+        <div class="item-list">
+          <table id="list">
+            <tr>
+              <th class="small-text">Item Name</th>
+              <th class="small-text">Qty</th>
+              <th class="small-text">Price</th>
+              <th class="small-text">Total</th>
+            </tr>
+            <tr>
+              <td><input type="text" /></td>
+              <td><input type="number" class="qty" /></td>
+              <td><input type="number" /></td>
+              <td><div class="total-amount"></div></td>
+            </tr>
+          </table>
+          <input
+            type="button"
+            value="+ Add New Item"
+            class="button"
+            id="add-new-item"
+          />
+          <br />
+          <input type="button" class="button" value="Cancel" />
+          <input type="button" class="button" value="Save Changes" />
+        </div>
+      </form>
+    </article>
+  </body>
+</html>
