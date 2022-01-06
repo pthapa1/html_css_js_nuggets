@@ -43,3 +43,8 @@ th {
 .button {
   cursor: pointer;
 }
+/* test only */
+
+#row_2 > td:nth-child(2) > input:nth-child(1) {
+  background-color: lightblue;
+}

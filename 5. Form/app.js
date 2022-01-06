@@ -4,8 +4,10 @@ let listTable = document.getElementById('list');
 addNewItemButton.addEventListener('click', () => {
   // now lets create tr and append inside the table body.
   let counter = 2;
+  let newRowAddedNumber = () => (counter += 1);
+
   const tr = document.createElement('tr');
-  let tableRowID = (tr.id = `row_${counter++}`);
+  let tableRowID = (tr.id = `row_${newRowAddedNumber()}`);
   tr.setAttribute('oninput', `calculate('${tableRowID}')`);
   listTable.appendChild(tr);
 
@@ -50,16 +52,17 @@ addNewItemButton.addEventListener('click', () => {
 function calculate(elementID) {
   // let tableRow = document.getElementById(elementID);
   let qtyBox = document.querySelectorAll(
-    `${elementID} > td:nth-child(2) > input:nth-child(1)`
+    `#${elementID} > td:nth-child(2) > input:nth-child(1)`
   )[0].value;
   let priceBox = document.querySelectorAll(
-    `${elementID} > td:nth-child(3) > input:nth-child(1)`
+    `#${elementID} > td:nth-child(3) > input:nth-child(1)`
   )[0].value;
   let totalAmountBox = document.querySelectorAll(
-    `${elementID} > td:nth-child(4) > div:nth-child(1)`
+    `#${elementID} > td:nth-child(4) > div:nth-child(1)`
   );
 
   let myResult = qtyBox * priceBox;
+  console.log(myResult);
 
   totalAmountBox.value = myResult;
 }
