@@ -49,19 +49,21 @@
         <br />
 
         <div class="item-list">
-          <table id="list">
-            <tr>
-              <th class="small-text">Item Name</th>
-              <th class="small-text">Qty</th>
-              <th class="small-text">Price</th>
-              <th class="small-text">Total</th>
-            </tr>
-            <tr>
-              <td><input type="text" /></td>
-              <td><input type="number" class="qty" /></td>
-              <td><input type="number" /></td>
-              <td><div class="total-amount"></div></td>
-            </tr>
+          <table>
+            <tbody id="list">
+              <tr>
+                <th class="small-text">Item Name</th>
+                <th class="small-text">Qty</th>
+                <th class="small-text">Price</th>
+                <th class="small-text">Total</th>
+              </tr>
+              <tr id="row_1">
+                <td><input type="text" /></td>
+                <td><input name="qty" type="number" class="qty" /></td>
+                <td><input name="price" type="number" /></td>
+                <td><div class="total-amount"></div></td>
+              </tr>
+            </tbody>
           </table>
           <input
             type="button"
