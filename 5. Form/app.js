@@ -1,12 +1,16 @@
 let addNewItemButton = document.getElementById('add-new-item');
 let listTable = document.getElementById('list');
 
+const uniqueId = () => {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+};
+
 addNewItemButton.addEventListener('click', () => {
   // now lets create tr and append inside the table body.
 
-  const uniqueId = () => {
-    return Date.now().toString(36) + Math.random().toString(36).substring(2);
-  };
+  // const uniqueId = () => {
+  //   return Date.now().toString(36) + Math.random().toString(36).substring(2);
+  // };
 
   const tr = document.createElement('tr');
   let tableRowID = (tr.id = `row_${uniqueId()}`);
@@ -44,7 +48,9 @@ addNewItemButton.addEventListener('click', () => {
   const column4 = document.createElement('td');
   tr.appendChild(column4);
   //data
-  const total = document.createElement('div');
+  const total = document.createElement('input');
+  total.type = 'number';
+  total.name = 'total';
   total.className = 'total-amount';
   column4.appendChild(total);
 });
@@ -52,7 +58,6 @@ addNewItemButton.addEventListener('click', () => {
 // Now create calculate(elementID)
 
 function calculate(elementID) {
-  // let tableRow = document.getElementById(elementID);
   let qtyBox = document.querySelectorAll(
     `#${elementID} > td:nth-child(2) > input:nth-child(1)`
   )[0].value;
@@ -60,16 +65,12 @@ function calculate(elementID) {
     `#${elementID} > td:nth-child(3) > input:nth-child(1)`
   )[0].value;
   let totalAmountBox = document.querySelectorAll(
-    `#${elementID} > td:nth-child(4) > div:nth-child(1)`
-  );
+    `#${elementID} > td:nth-child(4) > input:nth-child(1)`
+  )[0];
 
   let myResult = qtyBox * priceBox;
-  console.log(myResult);
-
   totalAmountBox.value = myResult;
 }
-//#row_2 > td:nth-child(2) > input:nth-child(1)
-//#row_2 > td:nth-child(3) > input:nth-child(1)
-// show the value in the  it in the div.
+
 // make the fields it required.
 // create the sumtotal.
