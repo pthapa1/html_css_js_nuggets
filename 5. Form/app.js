@@ -3,11 +3,13 @@ let listTable = document.getElementById('list');
 
 addNewItemButton.addEventListener('click', () => {
   // now lets create tr and append inside the table body.
-  let counter = 2;
-  let newRowAddedNumber = () => (counter += 1);
+
+  const uniqueId = () => {
+    return Date.now().toString(36) + Math.random().toString(36).substring(2);
+  };
 
   const tr = document.createElement('tr');
-  let tableRowID = (tr.id = `row_${newRowAddedNumber()}`);
+  let tableRowID = (tr.id = `row_${uniqueId()}`);
   tr.setAttribute('oninput', `calculate('${tableRowID}')`);
   listTable.appendChild(tr);
 
@@ -68,3 +70,6 @@ function calculate(elementID) {
 }
 //#row_2 > td:nth-child(2) > input:nth-child(1)
 //#row_2 > td:nth-child(3) > input:nth-child(1)
+// show the value in the  it in the div.
+// make the fields it required.
+// create the sumtotal.
