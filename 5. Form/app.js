@@ -69,8 +69,12 @@ function calculate(elementID) {
   )[0];
 
   let myResult = qtyBox * priceBox;
-  totalAmountBox.value = myResult;
+
+  totalAmountBox.value = myResult = (Math.round(myResult * 100) / 100).toFixed(
+    2
+  ); // fixed to two decimal places
+  // Calculate the sum of the total box
 }
 
-// make the fields it required.
+// make the fields required.
 // create the sumtotal.
