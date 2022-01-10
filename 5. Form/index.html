@@ -14,34 +14,56 @@
         <p class="small-text from">Bill From</p>
         <br />
         <p class="address small-text">Street Address</p>
-        <br />
         <input type="text" placeholder="1234 Somewhere St" />
-        <p class="address small-text">City</p>
-        <input type="text" placeholder="City" />
-        <p class="address small-text">Post Code</p>
-        <input type="text" placeholder="Zip Code" />
-        <p class="address small-text">Country</p>
-        <input type="text" placeholder="Country" />
+        <br /><br />
+        <div class="cityPostCountry">
+          <div class="city">
+            <p class="address small-text">City</p>
+            <input type="text" placeholder="City" />
+          </div>
+          <div class="post">
+            <p class="address small-text">Post Code</p>
+            <input type="text" placeholder="Zip Code" />
+          </div>
+          <div class="country">
+            <p class="address small-text">Country</p>
+            <input type="text" placeholder="Country" />
+          </div>
+        </div>
         <br />
         <p class="small-text to">Bill To</p>
         <br />
         <p class="name">Client's Name</p>
         <input type="text" placeholder="Name" />
         <p class="client-email">Client's Email</p>
+        <input type="text" placeholder="Enter Email" />
+
         <p class="address small-text">Street Address</p>
-        <br />
         <input type="text" placeholder="1234 Somewhere St" />
-        <p class="address small-text">City</p>
-        <input type="text" placeholder="City" />
-        <p class="address small-text">Post Code</p>
-        <input type="text" placeholder="Zip Code" />
-        <p class="address small-text">Country</p>
-        <input type="text" placeholder="Country" />
         <br />
-        <p class="small-text">Invoice Date</p>
-        <input type="datetime" />
-        <p class="small-text">Due Date</p>
-        <input type="datetime" />
+        <br />
+        <div class="cityPostCountry">
+          <div class="city">
+            <p class="address small-text">City</p>
+            <input type="text" placeholder="City" />
+          </div>
+          <div class="post">
+            <p class="address small-text">Post Code</p>
+            <input type="text" placeholder="Zip Code" />
+          </div>
+          <div class="country">
+            <p class="address small-text">Country</p>
+            <input type="text" placeholder="Country" />
+          </div>
+        </div>
+        <br />
+        <div class="invoiceDue">
+          <div class="invoiceDate"></div>
+          <p class="small-text">Invoice Date</p>
+          <input type="datetime" />
+          <p class="small-text">Due Date</p>
+          <input type="datetime" />
+        </div>
         <br />
         <p class="small-text">Project Description</p>
         <input type="text" />
@@ -84,7 +106,7 @@
         </div>
       </form>
       <div class="summary">
-        <h2 id="sumTotal">Total is:</h2>
+        <h2>Total is: <span id="sumTotal"></span></h2>
       </div>
     </article>
   </body>

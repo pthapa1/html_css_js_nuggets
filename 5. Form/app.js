@@ -74,7 +74,19 @@ function calculate(elementID) {
     2
   ); // fixed to two decimal places
   // Calculate the sum of the total box
+  let sumTotal = document.getElementById('sumTotal');
+  let totalBoxes = document.querySelectorAll('[name=total]');
+  let sumValue = 0;
+  for (let i = 0; i < totalBoxes.length; ++i) {
+    sumValue += parseInt(totalBoxes[i].value);
+  }
+  sumTotal.textContent = sumValue = (Math.round(sumValue * 100) / 100).toFixed(
+    2
+  );
 }
+// when the user clicks Save Changes, old form disappears and the new one appears.
+// clicking on Cancel returns the user to the home page.
 
 // make the fields required.
-// create the sumtotal.
+// trash / delete
+// save changes to summary page.
