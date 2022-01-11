@@ -44,8 +44,10 @@ th {
 .button {
   cursor: pointer;
 }
-.cityPostCountry,
-.invoiceDue {
+.cityPostCountry {
   display: flex;
   gap: 1em;
+}
+.invoiceDue {
+  display: flex;
 }

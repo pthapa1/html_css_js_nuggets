@@ -78,7 +78,7 @@ function calculate(elementID) {
   let totalBoxes = document.querySelectorAll('[name=total]');
   let sumValue = 0;
   for (let i = 0; i < totalBoxes.length; ++i) {
-    sumValue += parseInt(totalBoxes[i].value);
+    sumValue += parseFloat(totalBoxes[i].value);
   }
   sumTotal.textContent = sumValue = (Math.round(sumValue * 100) / 100).toFixed(
     2
