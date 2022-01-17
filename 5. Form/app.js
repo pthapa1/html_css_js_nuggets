@@ -90,3 +90,13 @@ function calculate(elementID) {
 // make the fields required.
 // trash / delete
 // save changes to summary page.
+const saveChanges = document.getElementById('saveChanges');
+
+saveChanges.addEventListener('click', () => {
+  let myTable = document.getElementById('list');
+  let myClone = myTable.cloneNode(true);
+
+  let summaryTable = document.getElementById('summaryTable');
+
+  let newClonedTable = summaryTable.appendChild(myClone);
+});
