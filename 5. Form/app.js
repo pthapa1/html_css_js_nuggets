@@ -23,6 +23,7 @@ addNewItemButton.addEventListener('click', () => {
   // data of column 1
   const itemName = document.createElement('input');
   itemName.type = 'text';
+  itemName.name = 'itemName';
   column1.appendChild(itemName);
 
   // column 2
@@ -99,4 +100,16 @@ saveChanges.addEventListener('click', () => {
   let summaryTable = document.getElementById('summaryTable');
 
   let newClonedTable = summaryTable.appendChild(myClone);
+
+  // grab all the values from the table
+  let allItemName = document.querySelectorAll('[name=itemName]');
+  let allQty = document.querySelectorAll('[name=qty]');
+  let allPrice = document.querySelectorAll('[name=price]');
+
+  //
+  var AddRown = document.getElementById('summaryTable');
+  var NewRow = AddRown.insertRow(n);
 });
+
+// don't append if the table is empty. If the table is appended, don't append it again. Or don't click it twice.
+// Replace the
