@@ -122,9 +122,6 @@ listOfItemsTable.addEventListener('submit', (e) => {
   // console.log(itemsName);
   // test end.
 
-  // if (savedValueFromLocalStorage) {
-  // }
-
   // if you want to clone the table.
   // let myTable = document.getElementById('list');
   // let myClone = myTable.cloneNode(true);
