@@ -10,7 +10,7 @@
   </head>
   <body>
     <article class="edit-ticket">
-      <form action="" method="post" class="form">
+      <form action="" method="post" class="form" id="listOfItems-table">
         <p class="small-text from">Bill From</p>
         <br />
         <p class="address small-text">Street Address</p>
@@ -82,13 +82,14 @@
               <tr id="row_1" oninput="calculate('row_1')">
                 <td><input type="text" name="itemName" /></td>
                 <td><input name="qty" type="number" class="qty" /></td>
-                <td><input name="price" type="number" /></td>
+                <td><input name="price" type="number" step="any" /></td>
                 <td>
                   <input
                     name="total"
                     type="number"
                     id="row1Total"
                     class="total-amount"
+                    step="any"
                   />
                 </td>
               </tr>
@@ -103,7 +104,7 @@
           <br />
           <input type="button" class="button" value="Cancel" />
           <input
-            type="button"
+            type="submit"
             class="button"
             value="Save Changes"
             id="saveChanges"

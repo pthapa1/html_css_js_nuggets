@@ -43,6 +43,7 @@ addNewItemButton.addEventListener('click', () => {
   const price = document.createElement('input');
   price.type = 'number';
   price.name = 'price';
+  price.step = 'any';
   column3.appendChild(price);
 
   // column 4
@@ -52,11 +53,12 @@ addNewItemButton.addEventListener('click', () => {
   const total = document.createElement('input');
   total.type = 'number';
   total.name = 'total';
+  total.step = 'any';
   total.className = 'total-amount';
   column4.appendChild(total);
 });
 
-// Now create calculate(elementID)
+// Now create calculate(elementID) the total by adding all the form.
 
 function calculate(elementID) {
   let qtyBox = document.querySelectorAll(
@@ -85,31 +87,65 @@ function calculate(elementID) {
     2
   );
 }
-// when the user clicks Save Changes, old form disappears and the new one appears.
-// clicking on Cancel returns the user to the home page.
+// Need to append the table and its values in local storage when save changes is clicked.
 
-// make the fields required.
-// trash / delete
-// save changes to summary page.
-const saveChanges = document.getElementById('saveChanges');
+let grabTheTable = document.getElementById('list');
+// let grabAllTheRows = document.querySelectorAll('#list tr[id^="row_"]');
 
-saveChanges.addEventListener('click', () => {
-  let myTable = document.getElementById('list');
-  let myClone = myTable.cloneNode(true);
+const listOfItemsTable = document.getElementById('listOfItems-table');
 
-  let summaryTable = document.getElementById('summaryTable');
+// submit the form.
 
-  let newClonedTable = summaryTable.appendChild(myClone);
-
+listOfItemsTable.addEventListener('submit', (e) => {
+  e.preventDefault();
+  // before submitting lets grab all the rows.
+  let grabAllTheRows = document.querySelectorAll('#list tr[id^="row_"]');
+  let grabAllTheRowsArr = Array.from(grabAllTheRows);
+  console.log(grabAllTheRowsArr);
   // grab all the values from the table
-  let allItemName = document.querySelectorAll('[name=itemName]');
-  let allQty = document.querySelectorAll('[name=qty]');
-  let allPrice = document.querySelectorAll('[name=price]');
+  let allItemName = document.querySelectorAll('[name=itemName]').value;
+  let allQty = document.querySelectorAll('[name=qty]').value;
+  let allPrice = document.querySelectorAll('[name=price]').value;
 
-  //
-  var AddRown = document.getElementById('summaryTable');
-  var NewRow = AddRown.insertRow(n);
+  let tableRowToAppend = document.getElementById('list').innerHTML;
+
+  localStorage.setItem('entireTable', tableRowToAppend);
+
+  // // save the values in local storage.
+  // localStorage.setItem('tableRow', JSON.stringify(grabAllTheRowsArr));
+  // // get the values from local storage.
+  // let savedValueFromLocalStorage = JSON.parse(localStorage.getItem('tableRow'));
+  // console.log(`Getting the saved value:  ${savedValueFromLocalStorage}`);
+
+  // testing retriving values.
+  // var itemsName = document.querySelector('#row_1 > td:nth-child(1)').value;
+  // console.log(itemsName);
+  // test end.
+
+  // if (savedValueFromLocalStorage) {
+  // }
+
+  // if you want to clone the table.
+  // let myTable = document.getElementById('list');
+  // let myClone = myTable.cloneNode(true);
+
+  //let summaryTable = document.getElementById('summaryTable');
+
+  // let newClonedTable = summaryTable.appendChild(myClone);
+
+  // adding the summary of the values in the new table.
+  // var AddRown = document.getElementById('summaryTable');
+  // var NewRow = AddRown.insertRow(n);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  let getTheTable = localStorage.getItem('entireTable');
+  let OriginalTableContent = document.getElementById('list').innerHTML;
+  if (getTheTable != OriginalTableContent) {
+    listTable.appendChild(getTheTable);
+  }
 });
 
 // don't append if the table is empty. If the table is appended, don't append it again. Or don't click it twice.
 // Replace the
+//
