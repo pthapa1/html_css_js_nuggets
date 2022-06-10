@@ -43,7 +43,7 @@ async function kitchen() {
     await time(2000);
     console.log('Serve the Ice Cream');
   } catch (error) {
-    console.log('Customer Left, error');
+    console.log('Customer Left', error);
   } finally {
     console.log('Day Ended! Please come back tomorrow.');
   }
