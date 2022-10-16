@@ -8,10 +8,6 @@ const uniqueId = () => {
 addNewItemButton.addEventListener('click', () => {
   // now lets create tr and append inside the table body.
 
-  // const uniqueId = () => {
-  //   return Date.now().toString(36) + Math.random().toString(36).substring(2);
-  // };
-
   const tr = document.createElement('tr');
   let tableRowID = (tr.id = `row_${uniqueId()}`);
   tr.setAttribute('oninput', `calculate('${tableRowID}')`);
@@ -23,7 +19,6 @@ addNewItemButton.addEventListener('click', () => {
   // data of column 1
   const itemName = document.createElement('input');
   itemName.type = 'text';
-  itemName.name = 'itemName';
   column1.appendChild(itemName);
 
   // column 2
@@ -43,7 +38,6 @@ addNewItemButton.addEventListener('click', () => {
   const price = document.createElement('input');
   price.type = 'number';
   price.name = 'price';
-  price.step = 'any';
   column3.appendChild(price);
 
   // column 4
@@ -53,12 +47,17 @@ addNewItemButton.addEventListener('click', () => {
   const total = document.createElement('input');
   total.type = 'number';
   total.name = 'total';
-  total.step = 'any';
   total.className = 'total-amount';
   column4.appendChild(total);
+
+  // append all the rows in local storage.
+  let tableRowToAppend = document.getElementById(tableRowID);
+  console.log(tableRowToAppend);
+  localStorage['tableRow'] = JSON.stringify(tableRowToAppend);
+  // localStorage.setItem('tableRow', tableRowToAppend);
 });
 
-// Now create calculate(elementID) the total by adding all the form.
+// Now create calculate(elementID)
 
 function calculate(elementID) {
   let qtyBox = document.querySelectorAll(
@@ -87,62 +86,19 @@ function calculate(elementID) {
     2
   );
 }
-// Need to append the table and its values in local storage when save changes is clicked.
+// when the user clicks Save Changes, old form disappears and the new one appears.
+// clicking on Cancel returns the user to the home page.
 
-let grabTheTable = document.getElementById('list');
-// let grabAllTheRows = document.querySelectorAll('#list tr[id^="row_"]');
+// make the fields required.
+// trash / delete
+// save changes to summary page.
+const saveChanges = document.getElementById('saveChanges');
 
-const listOfItemsTable = document.getElementById('listOfItems-table');
+saveChanges.addEventListener('click', () => {
+  let myTable = document.getElementById('list');
+  let myClone = myTable.cloneNode(true);
 
-// submit the form.
+  let summaryTable = document.getElementById('summaryTable');
 
-listOfItemsTable.addEventListener('submit', (e) => {
-  e.preventDefault();
-  // before submitting lets grab all the rows.
-  let grabAllTheRows = document.querySelectorAll('#list tr[id^="row_"]');
-  let grabAllTheRowsArr = Array.from(grabAllTheRows);
-  console.log(grabAllTheRowsArr);
-  // grab all the values from the table
-  let allItemName = document.querySelectorAll('[name=itemName]').value;
-  let allQty = document.querySelectorAll('[name=qty]').value;
-  let allPrice = document.querySelectorAll('[name=price]').value;
-
-  let tableRowToAppend = document.getElementById('list').innerHTML;
-
-  localStorage.setItem('entireTable', tableRowToAppend);
-
-  // // save the values in local storage.
-  // localStorage.setItem('tableRow', JSON.stringify(grabAllTheRowsArr));
-  // // get the values from local storage.
-  // let savedValueFromLocalStorage = JSON.parse(localStorage.getItem('tableRow'));
-  // console.log(`Getting the saved value:  ${savedValueFromLocalStorage}`);
-
-  // testing retriving values.
-  // var itemsName = document.querySelector('#row_1 > td:nth-child(1)').value;
-  // console.log(itemsName);
-  // test end.
-
-  // if you want to clone the table.
-  // let myTable = document.getElementById('list');
-  // let myClone = myTable.cloneNode(true);
-
-  //let summaryTable = document.getElementById('summaryTable');
-
-  // let newClonedTable = summaryTable.appendChild(myClone);
-
-  // adding the summary of the values in the new table.
-  // var AddRown = document.getElementById('summaryTable');
-  // var NewRow = AddRown.insertRow(n);
+  let newClonedTable = summaryTable.appendChild(myClone);
 });
-
-window.addEventListener('DOMContentLoaded', () => {
-  let getTheTable = localStorage.getItem('entireTable');
-  let OriginalTableContent = document.getElementById('list').innerHTML;
-  if (getTheTable != OriginalTableContent) {
-    listTable.appendChild(getTheTable);
-  }
-});
-
-// don't append if the table is empty. If the table is appended, don't append it again. Or don't click it twice.
-// Replace the
-//
