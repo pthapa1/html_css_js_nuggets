@@ -222,3 +222,14 @@ var countries = [
   'Zambia',
   'Zimbabwe',
 ];
+
+let searchAddress = {
+  getAddress: () => {
+    fetch('http://localhost:3000/address/southAfrica')
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => console.log(data));
+  },
+};
+// TODO: look how to allow CORS.
