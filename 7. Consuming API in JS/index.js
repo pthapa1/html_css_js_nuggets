@@ -223,13 +223,14 @@ var countries = [
   'Zimbabwe',
 ];
 
-let searchAddress = {
-  getAddress: () => {
-    fetch('http://localhost:3000/address/southAfrica')
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => console.log(data));
-  },
+const completeAddress = (name) => {
+  fetch(`http://localhost:3000/address/${name}`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => console.log(data))
+    .catch((error) => console.error('Error:', error));
 };
-// TODO: look how to allow CORS.
