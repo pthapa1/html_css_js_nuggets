@@ -18,14 +18,15 @@
         </nav>
       </header>
       <section class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item search">
           <input
             type="text"
             placeholder="Search.."
             id="myInput"
             class="grid-item"
+            value=""
           />
-          <button>
+          <button id="search-btn">
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -41,11 +42,18 @@
             </svg>
           </button>
         </div>
-        <div id="address-container" class="grid-item address-details">
-          <p class="businessName">Alarm.com</p>
-          <p class="address">8281 Greensboro Drive, Mclean, VA, 22102</p>
-          <p class="phoneNumber">8773894033</p>
-        </div>
+        <section id="address-container" class="grid-item address-details">
+          <!-- <div class="singleDetail">
+            <p class="name">Alarm.com</p>
+            <p class="address">8281 Greensboro Drive, Mclean, VA, 22102</p>
+            <p class="phone">8773894033</p>
+          </div>
+          <div class="singleDetail">
+            <p class="name">Alarm.com</p>
+            <p class="address">8281 Greensboro Drive, Mclean, VA, 22102</p>
+            <p class="phone">8773894033</p>
+          </div> -->
+        </section>
       </section>
     </div>
   </body>

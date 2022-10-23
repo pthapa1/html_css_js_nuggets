@@ -55,7 +55,7 @@ a {
   align-items: center;
   justify-content: center;
   margin: 1em;
-  /* remove this later */
+  /* TODO: remove this later */
   border: #efefef 1px solid;
 }
 .address-details {
@@ -66,7 +66,7 @@ a {
   .grid-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 6fr;
   }
 }
 /* search Icon Button */
@@ -80,9 +80,11 @@ button {
   cursor: pointer;
   transition: 0.2 ease-in-out;
   margin-right: 1em;
+  box-shadow: rgba(235, 204, 180, 0.35) 0px 5px 15px;
 }
 button:hover {
   background: #7c7c7c6b;
+  transform: scale(1.2);
 }
 
 /* input */
@@ -94,6 +96,28 @@ input#myInput {
   background-color: #040505;
   font-family: inherit;
   font-size: inherit;
-  color: #ebccb4;
+  color: rgb(235, 204, 180);
   width: calc(100% - 100px);
+  box-shadow: rgba(235, 204, 180, 0.35) 0px 5px 15px;
+}
+/* individual Address Card */
+.singleDetail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1em;
+  background-color: #7c7c7c2d;
+  margin: 0.5em 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(235, 204, 180, 0.3) 0px 30px 60px -30px,
+    rgba(235, 204, 180, 0.35) 0px -2px 6px 0px inset;
+}
+
+.singleDetail:hover {
+  transform: scale(1.0099);
+}
+
+.singleDetail > p {
+  padding: 2px;
+  letter-spacing: 1px;
 }
